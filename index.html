@@ -1,73 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Civil Action Project – Homelessness Awareness</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Civil Action Project – Supporting the Homeless Community</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <header>
-    <h1 class="logo">Civil Action Project</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#mission">Mission</a>
-      <a href="#stats">Stats</a>
-      <a href="#help">How to Help</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <header class="site-header">
+    <div class="wrap">
+      <h1 class="site-title">Civil Action Project</h1>
+      <p class="site-tag">Supporting the Homeless Community — dignity, shelter, and hope</p>
+      <nav class="main-nav">
+        <a href="#mission">Mission</a>
+        <a href="#stats">Stats</a>
+        <a href="#impact">Impact</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h2>Together, We Can End Homelessness</h2>
-      <p>Every person deserves shelter, hope, and a place to call home.</p>
-      <a href="#help" class="btn">Get Involved</a>
+  <main>
+    <section id="hero" class="hero">
+      <div class="wrap hero-inner fade-in">
+        <h2>Together, We Can Make Home Possible</h2>
+        <p>We raise awareness, support local shelter efforts, and advocate for long-term housing solutions.</p>
+        <a class="btn" href="#contact">Get Involved</a>
+      </div>
+    </section>
+
+    <section id="mission" class="content fade-in">
+      <div class="wrap">
+        <h2>Our Mission</h2>
+        <p>
+          The Civil Action Project is dedicated to compassionate, community-driven responses to homelessness.
+          We connect facts with action — educating our neighbors, supporting shelters, and advocating for policies
+          that expand affordable housing and services.
+        </p>
+      </div>
+    </section>
+
+    <section id="stats" class="content alt fade-in">
+      <div class="wrap">
+        <h2>Key Facts & Data</h2>
+        <p>Below are national figures and trends from HUD and other reputable research groups to help explain the scope of the challenge.</p>
+
+        <ul class="stats-list">
+          <li>
+            <strong>771,480 people</strong> experienced homelessness on a single night in January 2024 — the largest single-night count on record (an 18% increase from 2023). 
+            <div class="stat-source">Source: HUD 2024 PIT / AHAR (Dec 2024). <a href="https://archives.hud.gov/news/2024/pr24-327.cfm" target="_blank" rel="noopener">HUD press release</a>.</div>
+          </li>
+
+          <li>
+            <strong>~274,000 people</strong> were unsheltered (living in cars, tents, or on streets) during that count. <div class="stat-source">Source: HUD PIT/AHAR. <a href="https://www.huduser.gov/portal/datasets/ahar/2024-ahar-part-1-pit-estimates-of-homelessness-in-the-us.html" target="_blank" rel="noopener">HUD dataset</a>.</div>
+          </li>
+
+          <li>
+            <strong>152,585 people</strong> were estimated to be chronically homeless in 2024 (long-term or repeated homelessness). <div class="stat-source">Source: Congressional and HUD analyses. <a href="https://crsreports.congress.gov/product/pdf/IF/IF12985" target="_blank" rel="noopener">Congressional Research Service summary</a>.</div>
+          </li>
+
+          <li>
+            Black Americans are disproportionately affected: while ~12% of the U.S. population, they represented roughly ~32% of people experiencing homelessness in 2024. <div class="stat-source">Source: HUD/AHAR analyses and homelessness advocacy reports (see Sources below).</div>
+          </li>
+        </ul>
+
+        <p class="note">
+          These counts are from HUD's Point-In-Time (PIT) count and the Annual Homelessness Assessment Report (AHAR). PIT gives a snapshot on a single night; AHAR compiles additional program and demographic data. Exact counts and breakout details (age, veteran status, family vs individuals) are available in the linked HUD reports.
+        </p>
+
+      </div>
+    </section>
+
+    <section id="impact" class="content fade-in">
+      <div class="wrap">
+        <h2>What We Do / Impact</h2>
+        <p>
+          We coordinate volunteer drives (clothing, hygiene kits, meals), partner with local shelters and outreach teams,
+          and run awareness campaigns in schools and neighborhoods. We also share data and policy recommendations that help
+          local leaders prioritize affordable housing and prevention programs.
+        </p>
+        <ul class="impact-list">
+          <li>Volunteer coordination and donation drives</li>
+          <li>Public education campaigns and school presentations</li>
+          <li>Local advocacy for housing-first policies and supportive services</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="content alt fade-in">
+      <div class="wrap">
+        <h2>Contact & Get Involved</h2>
+
+        <!-- Contact form: Replace FORM_ACTION with your Formspree endpoint (or keep mailto fallback) -->
+        <form id="contact-form" class="contact-form" method="POST" action="https://formspree.io/f/{YOUR_FORM_ID}">
+          <label>
+            Your name
+            <input type="text" name="name" placeholder="Your full name" required>
+          </label>
+
+          <label>
+            Email
+            <input type="email" name="email" placeholder="you@example.com" required>
+          </label>
+
+          <label>
+            Message
+            <textarea name="message" rows="5" placeholder="How would you like to help?" required></textarea>
+          </label>
+
+          <button class="btn" type="submit">Send Message</button>
+        </form>
+
+        <p class="or">Or email us directly at: <a href="mailto:mibrahim1@greeleyschools.org">mibrahim1@greeleyschools.org</a></p>
+
+        <p class="note">Note: to enable the form to forward messages to your email automatically, sign up for Formspree (or another form service) and replace <code>{YOUR_FORM_ID}</code> in the form action with your actual Formspree ID. The mailto link will open the user's email client as a fallback.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2025 Civil Action Project — Created by Mohamed Ibrahim</p>
+      <p class="sources-title">Sources: <a href="https://archives.hud.gov/news/2024/pr24-327.cfm" target="_blank" rel="noopener">HUD press release (2024 AHAR/PIT)</a>, <a href="https://www.huduser.gov/portal/datasets/ahar/2024-ahar-part-1-pit-estimates-of-homelessness-in-the-us.html" target="_blank" rel="noopener">HUD AHAR dataset</a>, <a href="https://bipartisanpolicy.org/article/homelessness-at-a-record-high-key-takeaways-from-the-2024-pit-count/" target="_blank" rel="noopener">Bipartisan Policy</a>, <a href="https://www.reuters.com/world/us/us-homelessness-rose-by-record-18-latest-annual-data-2024-12-27/" target="_blank" rel="noopener">Reuters</a></p>
     </div>
-  </section>
-
-  <section id="about" class="content-section">
-    <h2>About Our Project</h2>
-    <p>The Civil Action Project is focused on raising awareness and mobilizing our community to take action on homelessness. We highlight the challenges, leverage research, and drive volunteer-led initiatives to support our neighbors in need.</p>
-  </section>
-
-  <section id="mission" class="content-section alt">
-    <h2>Our Mission</h2>
-    <p>We aim to: educate on root causes of homelessness, partner with local support services, and advocate for systemic solutions such as affordable housing and comprehensive support systems for individuals and families.</p>
-  </section>
-
-  <section id="stats" class="content-section">
-    <h2>Key Homelessness Facts (USA)</h2>
-    <ul>
-      <li>On a single night in January 2024, approximately <strong>770,000 people</strong> experienced homelessness in the U.S. — an 18 % increase from 2023. :contentReference[oaicite:1]{index=1}</li>
-      <li>Approximately <strong>one in three individuals</strong> experiencing homelessness (≈ 152,585 people) were considered chronically homeless. :contentReference[oaicite:2]{index=2}</li>
-      <li>Families with children facing homelessness saw a dramatic <strong>39 % increase</strong> between 2023 and 2024. :contentReference[oaicite:3]{index=3}</li>
-      <li>The homeless population is disproportionately people of color: Black people represent ~12 % of the U.S. population but ~32 % of all people experiencing homelessness in 2024. :contentReference[oaicite:4]{index=4}</li>
-    </ul>
-    <p style="font-size:0.9rem; color:#666; margin-top:20px;">Data based on the Point-In-Time (PIT) count and the Annual Homelessness Assessment Report (AHAR) compiled by the U.S. Department of Housing and Urban Development. :contentReference[oaicite:5]{index=5}</p>
-  </section>
-
-  <section id="help" class="content-section alt">
-    <h2>How You Can Help</h2>
-    <ul>
-      <li>Donate essential items like blankets, warm clothing, and hygiene kits.</li>
-      <li>Volunteer your time at a local shelter or support program.</li>
-      <li>Advocate for affordable housing and supportive services in your community.</li>
-      <li>Share facts and stories on social media to raise awareness.</li>
-    </ul>
-  </section>
-
-  <section id="contact" class="content-section">
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:team@civilaction.org">team@civilaction.org</a></p>
-    <p>Follow us on social media to stay updated and get involved.</p>
-  </section>
-
-  <footer>
-    <p>© 2025 Civil Action Project — Spreading awareness for homelessness.</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
