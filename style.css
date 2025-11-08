@@ -1,38 +1,113 @@
-body {
-  font-family: Arial, sans-serif;
+* {
   margin: 0;
-  background-color: #f5f6fa;
-  color: #2f3640;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+  scroll-behavior: smooth;
 }
 
 header {
-  background-color: #273c75;
+  background-color: #1e2a38;
   color: white;
-  padding: 1.5rem;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 nav a {
   color: white;
-  margin: 0 15px;
+  margin-left: 20px;
   text-decoration: none;
-  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  color: #ffd369;
 }
 
-section {
-  padding: 40px;
+.hero {
+  height: 90vh;
+  background: url('https://images.unsplash.com/photo-1529692236671-f1dc28c1c2b0?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.btn {
+  background-color: #ffd369;
+  color: #1e2a38;
+  padding: 10px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #e3b448;
+}
+
+.content-section {
+  padding: 60px 20px;
   max-width: 900px;
   margin: auto;
+  text-align: center;
+}
+
+.content-section.alt {
+  background-color: #eef2f3;
+}
+
+.content-section h2 {
+  color: #1e2a38;
+  margin-bottom: 20px;
+}
+
+.content-section p, .content-section ul {
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.content-section ul {
+  list-style: none;
+}
+
+.content-section ul li {
+  margin: 10px 0;
 }
 
 footer {
-  background-color: #353b48;
+  background-color: #1e2a38;
   color: white;
   text-align: center;
-  padding: 10px;
-  margin-top: 20px;
+  padding: 15px;
+  font-size: 0.9rem;
+  margin-top: 40px;
 }
