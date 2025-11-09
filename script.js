@@ -1,42 +1,61 @@
-// Smooth scrolling for internal links
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', function(e){
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (!target) return;
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+// === Chart.js setup ===
+document.addEventListener("DOMContentLoaded", function() {
+  const usCtx = document.getElementById("usChart");
+  const coCtx = document.getElementById("coChart");
+
+  // U.S. total homelessness (HUD 2024 data approximation)
+  new Chart(usCtx, {
+    type: "bar",
+    data: {
+      labels: ["2020", "2021", "2022", "2023", "2024"],
+      datasets: [{
+        label: "People Experiencing Homelessness (U.S.)",
+        data: [580466, 582462, 594826, 653104, 662104],
+        backgroundColor: "#fcb04588",
+        borderColor: "#fcb045",
+        borderWidth: 2
+      }]
+    },
+    options: {
+      scales: {
+        y: { beginAtZero: true, ticks: { color: "#eee" } },
+        x: { ticks: { color: "#eee" } }
+      },
+      plugins: {
+        legend: { labels: { color: "#eee" } }
+      }
+    }
+  });
+
+  // Colorado specific
+  new Chart(coCtx, {
+    type: "doughnut",
+    data: {
+      labels: ["Families", "Individuals", "Veterans", "Youth"],
+      datasets: [{
+        label: "Colorado Homeless Population (2024)",
+        data: [4500, 6100, 900, 750],
+        backgroundColor: ["#fcb045aa", "#fd1d1daa", "#833ab4aa", "#29abe2aa"],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      plugins: {
+        legend: {
+          labels: { color: "#eee" }
+        }
+      }
+    }
   });
 });
 
-// IntersectionObserver for fade-in elements
-const observerOptions = { threshold: 0.15 };
-const observer = new IntersectionObserver((entries, obs) => {
+// === Smooth fade-ins on scroll ===
+const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('appear');
-      obs.unobserve(entry.target);
+      entry.target.classList.add("visible");
     }
   });
-}, observerOptions);
+});
 
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-// Contact form client-side UX: show a quick inline message on submit (works with Formspree)
-// Replace form action with your Formspree endpoint to actually collect messages.
-const form = document.getElementById('contact-form');
-if (form) {
-  form.addEventListener('submit', (e) => {
-    // let the browser handle submission; show a small "sending..." UI if desired
-    const submitBtn = form.querySelector('button[type="submit"]');
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      const old = submitBtn.textContent;
-      submitBtn.textContent = 'Sending…';
-      // restore button after short delay if page doesn't navigate (useful for mailto fallback)
-      setTimeout(() => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = old;
-      }, 2200);
-    }
-  });
-}
+document.querySelectorAll("section").forEach(sec => observer.observe(sec));
