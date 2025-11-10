@@ -163,6 +163,54 @@ footer {
   font-size: 0.9rem;
   color: #999;
 }
+/* Reflection Section */
+.reflection-section {
+  padding: 100px 20px;
+  background: rgba(10, 20, 40, 0.8);
+  color: #fff;
+  text-align: left;
+  border-top: 2px solid #1e90ff;
+  border-bottom: 2px solid #1e90ff;
+}
+
+.reflection-section .container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.reflection-subsection {
+  margin-top: 40px;
+}
+
+.reflection-subsection h3 {
+  color: #1e90ff;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.reflection-img {
+  width: 100%;
+  margin: 30px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.reflection-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(30,144,255,0.6);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 
 

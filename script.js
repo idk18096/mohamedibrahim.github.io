@@ -65,4 +65,17 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll("section").forEach(sec => observer.observe(sec));
 
 
+// === Scroll Fade-In for Reflection Section ===
+document.addEventListener("scroll", () => {
+  const fadeElems = document.querySelectorAll(".fade-in, .reflection-img");
+  const triggerBottom = window.innerHeight * 0.85;
+
+  fadeElems.forEach(elem => {
+    const elemTop = elem.getBoundingClientRect().top;
+    if (elemTop < triggerBottom) {
+      elem.style.opacity = "1";
+      elem.style.transform = "translateY(0)";
+    }
+  });
+});
 
