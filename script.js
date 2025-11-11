@@ -3,8 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const usCtx = document.getElementById("usChart");
   const coCtx = document.getElementById("coChart");
 
-
-  // U.S. total homelessness (HUD 2024 data approximation)
+  // --- U.S. total homelessness (HUD 2024 data approximation)
   new Chart(usCtx, {
     type: "bar",
     data: {
@@ -28,8 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-
-  // Colorado specific
+  // --- Colorado specific chart (2024)
   new Chart(coCtx, {
     type: "doughnut",
     data: {
@@ -49,6 +47,44 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
   });
+
+  // --- NEW: Homelessness Trends (U.S. vs Colorado)
+  const ctxT = document.getElementById("trendChart");
+  if (ctxT) {
+    new Chart(ctxT, {
+      type: "line",
+      data: {
+        labels: ["2014", "2016", "2018", "2020", "2022", "2024"],
+        datasets: [
+          {
+            label: "U.S. Homeless Population",
+            data: [578424, 564708, 552830, 580466, 582462, 653104],
+            borderColor: "rgba(127,179,213,1)",
+            tension: 0.3,
+            fill: false
+          },
+          {
+            label: "Colorado Homeless Population",
+            data: [16100, 14200, 14400, 16600, 17400, 18715],
+            borderColor: "rgba(245,169,127,1)",
+            tension: 0.3,
+            fill: false
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { labels: { color: "#e6eef6" } },
+          tooltip: { mode: "index", intersect: false }
+        },
+        scales: {
+          x: { ticks: { color: "#98a0ab" } },
+          y: { ticks: { color: "#98a0ab" } }
+        }
+      }
+    });
+  }
 });
 
 
@@ -60,7 +96,6 @@ const observer = new IntersectionObserver(entries => {
     }
   });
 });
-
 
 document.querySelectorAll("section").forEach(sec => observer.observe(sec));
 
@@ -79,37 +114,17 @@ document.addEventListener("scroll", () => {
   });
 });
 
-// Chart for "Homelessness Trends"
-const ctxT = document.getElementById('trendChart');
-new Chart(ctxT, {
-  type: 'line',
-  data: {
-    labels: ['2014','2016','2018','2020','2022','2024'],
-    datasets: [
-      {
-        label: 'U.S. Homeless Population',
-        data: [578424,564708,552830,580466,582462,653104],
-        borderColor: 'rgba(127,179,213,1)',
-        tension: 0.3,
-        fill: false
-      },
-      {
-        label: 'Colorado Homeless Population',
-        data: [16100,14200,14400,16600,17400,18715],
-        borderColor: 'rgba(245,169,127,1)',
-        tension: 0.3,
-        fill: false
-      }
-    ]
-  },
-  options: {
-    responsive: true,
-    plugins: {
-      legend: { labels: { color: '#e6eef6' } }
-    },
-    scales: {
-      x: { ticks: { color: '#98a0ab' } },
-      y: { ticks: { color: '#98a0ab' } }
-    }
+
+// === 3D Tilt setup for all data cards ===
+document.addEventListener("DOMContentLoaded", () => {
+  const tiltEls = document.querySelectorAll("[data-tilt]");
+  if (window.VanillaTilt) {
+    VanillaTilt.init(tiltEls, {
+      max: 14,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.12,
+      scale: 1.02
+    });
   }
 });

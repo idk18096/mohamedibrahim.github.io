@@ -327,9 +327,20 @@
   </div>
 </div>
 
-<div class="tilt-card" data-tilt data-tilt-max="10" data-tilt-speed="400">
-  <h3>Homelessness Trends</h3>
-  <canvas id="trendChart"></canvas>
+<!-- Homelessness Trends Section -->
+<div class="tilt-card" data-tilt data-tilt-max="10" data-tilt-speed="420">
+  <h3>Homelessness Trends (U.S.)</h3>
+  <p style="color:var(--muted); font-size:0.95rem; margin-bottom:10px;">
+    U.S. homelessness has been steadily increasing in recent years, especially among families and individuals without shelter.
+  </p>
+
+  <!-- Static reference image -->
+  <img src="https://econofact.org/wp-content/uploads/2025/01/EF-Homelessness-Graph-One-Desktop.png" 
+       alt="Homelessness trends chart" 
+       style="width:100%; border-radius:10px; margin-bottom:10px; box-shadow:0 6px 14px rgba(0,0,0,0.4)">
+
+  <!-- Interactive Chart -->
+  <canvas id="trendChart" width="400" height="240" aria-label="Homelessness trends interactive chart"></canvas>
 </div>
 <!-- ✨ END: Interactive Insights Additions -->
 
