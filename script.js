@@ -79,3 +79,50 @@ document.addEventListener("scroll", () => {
   });
 });
 
+// ===============================
+// Trend Chart (Chart.js)
+// ===============================
+const ctx = document.getElementById('trendChart');
+
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['2014', '2016', '2018', '2020', '2022', '2024'],
+    datasets: [
+      {
+        label: 'U.S. Homeless Population',
+        data: [578424, 564708, 552830, 580466, 582462, 653104],
+        borderColor: '#93c8ff',
+        tension: 0.3,
+        fill: false,
+        pointBackgroundColor: '#93c8ff',
+      },
+      {
+        label: 'Colorado Homeless Population',
+        data: [16100, 14200, 14400, 16600, 17400, 18715],
+        borderColor: '#ff9f5c',
+        tension: 0.3,
+        fill: false,
+        pointBackgroundColor: '#ff9f5c',
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        labels: { color: '#fff' },
+      },
+    },
+    scales: {
+      x: {
+        ticks: { color: '#ccc' },
+        grid: { color: 'rgba(255,255,255,0.1)' },
+      },
+      y: {
+        ticks: { color: '#ccc' },
+        grid: { color: 'rgba(255,255,255,0.1)' },
+      },
+    },
+  },
+});
