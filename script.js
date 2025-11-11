@@ -79,50 +79,37 @@ document.addEventListener("scroll", () => {
   });
 });
 
-// ===============================
-// Trend Chart (Chart.js)
-// ===============================
-const ctx = document.getElementById('trendChart');
-
-new Chart(ctx, {
+// Chart for "Homelessness Trends"
+const ctxT = document.getElementById('trendChart');
+new Chart(ctxT, {
   type: 'line',
   data: {
-    labels: ['2014', '2016', '2018', '2020', '2022', '2024'],
+    labels: ['2014','2016','2018','2020','2022','2024'],
     datasets: [
       {
         label: 'U.S. Homeless Population',
-        data: [578424, 564708, 552830, 580466, 582462, 653104],
-        borderColor: '#93c8ff',
+        data: [578424,564708,552830,580466,582462,653104],
+        borderColor: 'rgba(127,179,213,1)',
         tension: 0.3,
-        fill: false,
-        pointBackgroundColor: '#93c8ff',
+        fill: false
       },
       {
         label: 'Colorado Homeless Population',
-        data: [16100, 14200, 14400, 16600, 17400, 18715],
-        borderColor: '#ff9f5c',
+        data: [16100,14200,14400,16600,17400,18715],
+        borderColor: 'rgba(245,169,127,1)',
         tension: 0.3,
-        fill: false,
-        pointBackgroundColor: '#ff9f5c',
-      },
-    ],
+        fill: false
+      }
+    ]
   },
   options: {
     responsive: true,
     plugins: {
-      legend: {
-        labels: { color: '#fff' },
-      },
+      legend: { labels: { color: '#e6eef6' } }
     },
     scales: {
-      x: {
-        ticks: { color: '#ccc' },
-        grid: { color: 'rgba(255,255,255,0.1)' },
-      },
-      y: {
-        ticks: { color: '#ccc' },
-        grid: { color: 'rgba(255,255,255,0.1)' },
-      },
-    },
-  },
+      x: { ticks: { color: '#98a0ab' } },
+      y: { ticks: { color: '#98a0ab' } }
+    }
+  }
 });
